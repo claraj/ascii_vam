@@ -44,16 +44,14 @@ def ascii(img, lines):
 
     ascii = ""  #Will contain our ascii picture; a string of characters with newlines in.
 
-    #lines = 35
-
     y_boxes = lines   #Since displaying in terminal, will make picture 35 lines tall.
     y_box_pix = int(h / lines)     #How many pixels on one line?
 
-    x_boxes = int(w / y_box_pix) * 2  #Use twice as many characters for length as height
-    x_box_pix = int(y_box_pix / 2) #And half as many pixels
+    x_box_pix = int(y_box_pix / 2) #Use half as many pixels - a character is narrower than tall.
+    x_boxes = int(w / x_box_pix)  # And compute the number of x_boxes from the pixels from x squares.
 
     if x_box_pix < 1 or y_box_pix < 1 :
-        print("Too many lines, try a smaller number.")
+        print("Image too small, or number of lines is too large.")
         return
 
     #Loop over all of the boxes....

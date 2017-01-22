@@ -44,7 +44,6 @@ def fetch_image(image_data):
         for chunk in image_response.iter_content(chunk_size=128):
             file.write(chunk)
 
-
     return filepath
 
     #TODO error handling
